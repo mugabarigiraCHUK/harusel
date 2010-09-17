@@ -1,0 +1,207 @@
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="hrtool" default="test">
+  <property environment="env"/>
+  <property name="ivy.install.version" value="2.0.0"/>
+  <condition property="ivy.home" value="${env.IVY_HOME}">
+    <isset property="env.IVY_HOME"/>
+  </condition>
+  <property name="ivy.home" value="${user.home}/.ant"/>
+  <property name="ivy.jar.dir" value="${ivy.home}/lib"/>
+  <property name="ivy.jar.file" value="${ivy.jar.dir}/ivy-${ivy.install.version}.jar"/>
+
+  <target name="download-ivy" unless="offline">
+    <available file="${ivy.jar.file}" property="ivy.available"/>
+    <antcall target="-download-ivy"/>
+  </target>
+
+  <target name="-download-ivy" unless="ivy.available">
+    <mkdir dir="${ivy.jar.dir}"/>
+    <!-- download Ivy from web site so that it can be used even without any special installation -->
+    <get src="http://www.apache.org/dist/ant/ivy/${ivy.install.version}/apache-ivy-${ivy.install.version}-bin.zip"
+         dest="${ivy.home}/ivy.zip" usetimestamp="true" verbose="true"/>
+    <unzip src="${ivy.home}/ivy.zip" dest="${ivy.jar.dir}">
+      <patternset>
+        <include name="**/*.jar"/>
+      </patternset>
+      <mapper type="flatten"/>
+    </unzip>
+  </target>
+
+  <target name="init-ivy" depends="download-ivy" unless="ivy.lib.path">
+    <!-- try to load ivy here from ivy home, in case the user has not already dropped
+it into ant's lib dir (note that the latter copy will always take precedence).
+We will not fail as long as local lib dir exists (it may be empty) and
+ivy is in at least one of ant's lib dir or the local lib dir. -->
+    <path id="ivy.lib.path">
+      <fileset dir="${ivy.jar.dir}" includes="*.jar"/>
+    </path>
+    <taskdef resource="org/apache/ivy/ant/antlib.xml"
+             uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path"/>
+  </target>
+
+
+  <property name="lib.dir" value="${basedir}/lib"/>
+
+  <macrodef name="grails">
+    <attribute name="script"/>
+    <attribute name="args" default=""/>
+    <sequential>
+      <grailsTask script="@{script}" args="@{args}" classpathref="grails.classpath">
+        <compileClasspath refid="compile.classpath"/>
+        <testClasspath refid="test.classpath"/>
+        <runtimeClasspath refid="app.classpath"/>
+      </grailsTask>
+    </sequential>
+  </macrodef>
+
+  <!-- =================================
+  target: resolve
+ ================================= -->
+  <target name="-resolve" description="--> Retrieve dependencies with ivy" depends="init-ivy">
+    <ivy:retrieve pattern="${lib.dir}/[conf]/[artifact]-[revision].[ext]"/>
+  </target>
+
+  <target name="-init-grails" depends="-resolve">
+    <path id="grails.classpath">
+      <fileset dir="${lib.dir}/build"/>
+      <fileset dir="${lib.dir}"/>
+    </path>
+
+    <path id="compile.classpath">
+      <fileset dir="${lib.dir}/compile"/>
+    </path>
+
+    <path id="test.classpath">
+      <fileset dir="${lib.dir}/test"/>
+    </path>
+
+    <path id="app.classpath">
+      <fileset dir="${lib.dir}/runtime"/>
+    </path>
+
+    <taskdef name="grailsTask"
+             classname="grails.ant.GrailsTask"
+             classpathref="grails.classpath"/>
+  </target>
+
+  <target name="deps-report" depends="-resolve" description="--> Generate report of module dependencies.">
+    <ivy:report conf="*"/>
+  </target>
+
+  <!-- =================================
+  target: clean
+ ================================= -->
+  <target name="clean" description="--> Cleans a Grails application">
+    <delete failonerror="true">
+      <fileset dir="${lib.dir}/build" includes="*/"/>
+      <fileset dir="${lib.dir}/compile" includes="*/"/>
+      <fileset dir="${lib.dir}/runtime" includes="*/"/>
+      <fileset dir="${lib.dir}/test" includes="*/"/>
+    </delete>
+    <antcall target="--grails-clean"/>
+  </target>
+
+  <!-- extra target to avoid errors on Windows because libs on classpath can not be deleted -->
+  <target name="--grails-clean" depends="-init-grails">
+    <grails script="Clean"/>
+  </target>
+
+  <!-- =================================
+  target: compile
+ ================================= -->
+  <target name="compile" depends="-init-grails" description="--> Compiles a Grails application">
+    <grails script="Compile"/>
+  </target>
+
+  <!-- =================================
+  target: war
+ ================================= -->
+  <target name="war" depends="-init-grails" description="--> Creates a WAR of a Grails application">
+    <grails script="War"/>
+  </target>
+
+  <!-- =================================
+  target: test
+ ================================= -->
+  <target name="test" depends="-init-grails" description="--> Run a Grails applications unit tests">
+    <grails script="TestApp"/>
+  </target>
+
+  <!-- =================================
+  target: run
+ ================================= -->
+  <target name="run" depends="-init-grails" description="--> Runs a Grails application using embedded Jetty">
+    <grails script="RunApp"/>
+  </target>
+
+  <!-- =================================
+  target: deploy
+ ================================= -->
+  <target name="deploy" depends="war" description="--> The deploy target (initially empty)">
+    <!-- TODO -->
+  </target>
+
+
+  <target name="init-properties">
+    <!-- set up base properties -->
+    <property name="hrtool.basedir" value="${basedir}/../.."/>
+    <property name="3rdparty.dir" value="${hrtool.basedir}/3rdparty"/>
+    <property name="delivery.dir" value="${hrtool.basedir}/delivery"/>
+    <property name="projects.dir" value="${hrtool.basedir}/projects"/>
+    <property name="hrtool.project.dir" value="${hrtool.basedir}/projects/HRTool"/>
+    <property name="temp.dir" value="${hrtool.basedir}/temp"/>
+  </target>
+
+  <target name="init-delivery" depends="init-properties">
+    <tstamp>
+      <format property="today" pattern="yyyy-MM-dd"/>
+    </tstamp>
+    <property name="today.delivery.dir" value="${delivery.dir}/${today}"/>
+    <property file="${projects.dir}/HRTool/application.properties"/>
+  </target>
+
+  <target name="makeDelivery" depends="init-properties, init-delivery, war" description="makes delivery">
+    <mkdir dir="${today.delivery.dir}"/>
+    <unzip src="${3rdparty.dir}/tomcat-6.0.13.zip" dest="${today.delivery.dir}/tomcat"/>
+    <unwar src="${projects.dir}/HRTool/${app.name}-${app.version}.war" dest="${today.delivery.dir}/hr-tool/HRTool"/>
+    <copy file="${projects.dir}/HRTool/configuration.groovy" todir="${today.delivery.dir}/hr-tool-config"/>
+    <copy file="${3rdparty.dir}/server.xml" tofile="${today.delivery.dir}/tomcat/conf/server.xml"/>
+    <copy file="${3rdparty.dir}/run.bat" todir="${today.delivery.dir}"/>
+    <copy file="${3rdparty.dir}/stop.bat" todir="${today.delivery.dir}"/>
+    <zip destfile="${delivery.dir}/HRTool-${today}.zip" basedir="${today.delivery.dir}" includes="**/*"/>
+    <delete dir="${today.delivery.dir}"/>
+  </target>
+
+
+  <target name="runOfflineTests" depends="-init-grails">
+    <grails script="RunTests" args="-offline -selenium **Documents*"/>
+  </target>
+
+  <target name="gmetrics">
+    <taskdef name="gmetrics" classname="org.gmetrics.ant.GMetricsTask"
+        >
+      <classpath>
+        <path refid="grails.classpath"/>
+        <fileset file="${env.GROOVY_HOME}/embeddable/*.jar"/>
+      </classpath>
+    </taskdef>
+
+    <property name="reports.dir" value="${basedir}/docs/reports"/>
+    <mkdir dir="${reports.dir}"/>
+
+    <gmetrics>
+      <report type="org.gmetrics.report.BasicHtmlReportWriter">
+        <option name="outputFile" value="${reports.dir}/GMetricsReport.html"/>
+        <option name="title" value="Sample"/>
+      </report>
+      <fileset dir=".">
+        <include name="**/*.groovy"/>
+        <exclude name="**/org/grails/plugins/**"/>
+        <exclude name="**/org/codehaus/groovy/**"/>
+        <exclude name="**/grails/ldap/**"/>
+        <exclude name="**/plugins/**"/>
+      </fileset>
+    </gmetrics>
+
+  </target>
+
+</project>

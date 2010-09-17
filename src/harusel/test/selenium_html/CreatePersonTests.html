@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="selenium.base" href=""/>
+    <title>CreatePersonTests</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+    <thead>
+    <tr>
+        <td rowspan="1" colspan="3">CreatePersonTests</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>openAndWait</td>
+        <td>/login/signout</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>type</td>
+        <td>j_username</td>
+        <td>testhr1</td>
+    </tr>
+    <tr>
+        <td>type</td>
+        <td>j_password</td>
+        <td>testhr1</td>
+    </tr>
+    <tr>
+        <td>clickAndWait</td>
+        <td>id=loginButton</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>runScript</td>
+        <td>$.fx.off=true</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>runScript</td>
+        <td>$.ajaxSetup({async: false})</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>click</td>
+        <td>btnAddNew</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>waitForElementPresent</td>
+        <td>id=addPersonNameField</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>type</td>
+        <td>id=addPersonNameField</td>
+        <td>Нормально Созданный Пользователь</td>
+    </tr>
+    <tr>
+        <td>waitForElementPresent</td>
+        <td>id=addPersonPopupSubmit</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>click</td>
+        <td>id=addPersonPopupSubmit</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>waitForElementPresent</td>
+        <td>id=genericInfo</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>verifyTextPresent</td>
+        <td>Нормально Созданный Пользователь</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>verifyTextPresent</td>
+        <td>Новый</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>verifyValue</td>
+        <td>fullName</td>
+        <td>Нормально Созданный Пользователь</td>
+    </tr>
+    <tr>
+        <td>verifyValue</td>
+        <td>emails</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>verifyValue</td>
+        <td>phones</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>click</td>
+        <td>add</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>click</td>
+        <td>id=timelineTabTitle</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>waitForTextPresent</td>
+        <td>зарегистрировал кандидата</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>click</td>
+        <td>addDoc</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>type</td>
+        <td>documents[0].file</td>
+        <td>\\fs\Projects\HRTool\Backlog.xlsx</td>
+    </tr>
+    <tr>
+        <td>type</td>
+        <td>documents[0].typeName</td>
+        <td>HR Tool Backlog</td>
+    </tr>
+    <tr>
+        <td>runScript</td>
+        <td>$('.ui-dialog:visible button:contains(Upload)').click()</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>waitForElementNotPresent</td>
+        <td>//div[@class='blockUI blockMsg blockPage']</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>runScript</td>
+        <td>$('a:contains(Документы)').click()</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>verifyTextPresent</td>
+        <td>Backlog.xlsx</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>verifyTextPresent</td>
+        <td>HR Tool Backlog</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>click</td>
+        <td>id=backToListLink</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>verifyTextPresent</td>
+        <td>Нормально Созданный Пользователь</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>type</td>
+        <td>id=searchTextField</td>
+        <td>Нормально Созданный Пользователь</td>
+    </tr>
+    <tr>
+        <td>click</td>
+        <td>id=searchButton</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>type</td>
+        <td>id=searchTextField</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>verifyTextPresent</td>
+        <td>Нормально Созданный Пользователь</td>
+        <td></td>
+    </tr>
+
+    </tbody>
+</table>
+</body>
+</html>

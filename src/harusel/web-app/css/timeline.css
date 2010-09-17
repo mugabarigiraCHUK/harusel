@@ -1,0 +1,57 @@
+.timelineTable {
+    width: 720px;
+    border: 1px solid #ccc;
+}
+
+.numberCol {
+    float: left;
+    width: 30px;
+    text-align: center;
+}
+
+.fullNameCol {
+    float: left;
+    width: 310px;
+}
+
+.timelineCol {
+    float: left;
+    width: 380px;
+}
+
+.tableHeader {
+    line-height: 35px;
+    padding: 0;
+    background: url(../images/img/bgTableHeader.png) repeat-x;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+}
+
+.userList {
+    float: left;
+    width: 340px;
+}
+
+.timelinesList {
+    float: left;
+    width: 378px;
+    overflow-x: auto;
+    border-left: 1px solid #ccc;
+}
+
+.timelineTable .row {
+    height: 20px;
+    line-height: 20px;
+}
+
+.timelineRow {
+    float: left;
+    min-width: 378px;
+    background: transparent url(../images/timelineBackground.png) repeat-x center;
+}
+
+.mark {
+    float: left;
+}
+

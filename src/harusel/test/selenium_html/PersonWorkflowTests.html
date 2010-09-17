@@ -1,0 +1,2099 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="selenium.base" href=""/>
+    <title>PersonWorkflowTests</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr>
+    <td rowspan="1" colspan="3">PersonWorkflowTests</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>openAndWait</td>
+    <td>/login/signout</td>
+    <td></td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>j_username</td>
+    <td>testhr1</td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>j_password</td>
+    <td>testhr1</td>
+</tr>
+<tr>
+    <td>clickAndWait</td>
+    <td>id=loginButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$.fx.off=true</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$.ajaxSetup({async: false})</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=btnAddNew</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>id=addPersonNameField</td>
+    <td></td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=addPersonNameField</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>id=addPersonPopupSubmit</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=addPersonPopupSubmit</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>id=genericInfo</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=add</td>
+    <td></td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=searchButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Пользователь для PersonWorkflow)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>id=genericInfo</td>
+    <td></td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=setStageButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible select option[selected]').removeAttr('selected');$('.ui-dialog:visible select
+        option:contains(Ожидание резюме)').attr('selected', true)
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible textarea').attr('value', 'Тест PersonWorkflow установил статус пользователя в Ожидание
+        резюме')
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible button:contains(Set)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=save</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=timelineTabTitle</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>перевел из стадии Новый в Ожидание резюме</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Тест PersonWorkflow установил статус пользователя в Ожидание резюме</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Рассматриваются)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Пользователь для PersonWorkflow</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Принятые)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отложенные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отклоненные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=searchButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Пользователь для PersonWorkflow)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>id=genericInfo</td>
+    <td></td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=setStageButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible select option[selected]').removeAttr('selected');$('.ui-dialog:visible select
+        option:contains(Рассмотрение резюме)').attr('selected', true)
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible textarea').attr('value', 'Тест PersonWorkflow установил статус пользователя в Рассмотрение
+        резюме')
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible button:contains(Set)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=save</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=timelineTabTitle</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>перевел из стадии Ожидание резюме в Рассмотрение резюме</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Тест PersonWorkflow установил статус пользователя в Рассмотрение резюме</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Рассматриваются)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Пользователь для PersonWorkflow</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Принятые)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отложенные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отклоненные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=searchButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Пользователь для PersonWorkflow)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>id=genericInfo</td>
+    <td></td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=setStageButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible select option[selected]').removeAttr('selected');$('.ui-dialog:visible select
+        option:contains(Ожидание анкеты)').attr('selected', true)
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible textarea').attr('value', 'Тест PersonWorkflow установил статус пользователя в Ожидание
+        анкеты')
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible button:contains(Set)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=save</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=timelineTabTitle</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>перевел из стадии Рассмотрение резюме в Ожидание анкеты</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Тест PersonWorkflow установил статус пользователя в Ожидание анкеты</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Рассматриваются)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Пользователь для PersonWorkflow</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Принятые)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отложенные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отклоненные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=searchButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Пользователь для PersonWorkflow)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>id=genericInfo</td>
+    <td></td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=setStageButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible select option[selected]').removeAttr('selected');$('.ui-dialog:visible select
+        option:contains(Рассмотрение анкеты)').attr('selected', true)
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible textarea').attr('value', 'Тест PersonWorkflow установил статус пользователя в Рассмотрение
+        анкеты')
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible button:contains(Set)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=save</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=timelineTabTitle</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>перевел из стадии Ожидание анкеты в Рассмотрение анкеты</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Тест PersonWorkflow установил статус пользователя в Рассмотрение анкеты</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Рассматриваются)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Пользователь для PersonWorkflow</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Принятые)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отложенные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отклоненные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=searchButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Пользователь для PersonWorkflow)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>id=genericInfo</td>
+    <td></td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=setStageButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible select option[selected]').removeAttr('selected');$('.ui-dialog:visible select
+        option:contains(Приглашен на собеседование)').attr('selected', true)
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible textarea').attr('value', 'Тест PersonWorkflow установил статус пользователя в Приглашен на
+        собеседование')
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible button:contains(Set)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=save</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=timelineTabTitle</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>перевел из стадии Рассмотрение анкеты в Приглашен на собеседование</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Тест PersonWorkflow установил статус пользователя в Приглашен на собеседование</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Рассматриваются)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Пользователь для PersonWorkflow</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Принятые)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отложенные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отклоненные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=searchButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Пользователь для PersonWorkflow)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>id=genericInfo</td>
+    <td></td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=setStageButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible select option[selected]').removeAttr('selected');$('.ui-dialog:visible select
+        option:contains(Ожидание решения компании)').attr('selected', true)
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible textarea').attr('value', 'Тест PersonWorkflow установил статус пользователя в Ожидание
+        решения компании')
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible button:contains(Set)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=save</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=timelineTabTitle</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>перевел из стадии Приглашен на собеседование в Ожидание решения компании</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Тест PersonWorkflow установил статус пользователя в Ожидание решения компании</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Рассматриваются)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Пользователь для PersonWorkflow</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Принятые)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отложенные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отклоненные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=searchButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Пользователь для PersonWorkflow)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>id=genericInfo</td>
+    <td></td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=setStageButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible select option[selected]').removeAttr('selected');$('.ui-dialog:visible select
+        option:contains(Ожидание дополнительной информации)').attr('selected', true)
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible textarea').attr('value', 'Тест PersonWorkflow установил статус пользователя в Ожидание
+        дополнительной информации')
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible button:contains(Set)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=save</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=timelineTabTitle</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>перевел из стадии Ожидание решения компании в Ожидание дополнительной информации</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Тест PersonWorkflow установил статус пользователя в Ожидание дополнительной информации</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Рассматриваются)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Пользователь для PersonWorkflow</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Принятые)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отложенные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отклоненные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=searchButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Пользователь для PersonWorkflow)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>id=genericInfo</td>
+    <td></td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=setStageButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible select option[selected]').removeAttr('selected');$('.ui-dialog:visible select
+        option:contains(Приглашён на 2й или 3й этап собеседования)').attr('selected', true)
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible textarea').attr('value', 'Тест PersonWorkflow установил статус пользователя в Приглашён на
+        2й или 3й этап собеседования')
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible button:contains(Set)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=save</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=timelineTabTitle</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>перевел из стадии Ожидание дополнительной информации в Приглашён на 2й или 3й этап собеседования</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Тест PersonWorkflow установил статус пользователя в Приглашён на 2й или 3й этап собеседования</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Рассматриваются)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Пользователь для PersonWorkflow</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Принятые)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отложенные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отклоненные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=searchButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Пользователь для PersonWorkflow)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>id=genericInfo</td>
+    <td></td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=setStageButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible select option[selected]').removeAttr('selected');$('.ui-dialog:visible select
+        option:contains(Ожидание подтверждения приглашения)').attr('selected', true)
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible textarea').attr('value', 'Тест PersonWorkflow установил статус пользователя в Ожидание
+        подтверждения приглашения')
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible button:contains(Set)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=save</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=timelineTabTitle</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>перевел из стадии Приглашён на 2й или 3й этап собеседования в Ожидание подтверждения приглашения</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Тест PersonWorkflow установил статус пользователя в Ожидание подтверждения приглашения</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Рассматриваются)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Пользователь для PersonWorkflow</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Принятые)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отложенные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отклоненные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=searchButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Пользователь для PersonWorkflow)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>id=genericInfo</td>
+    <td></td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=setStageButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible select option[selected]').removeAttr('selected');$('.ui-dialog:visible select
+        option:contains(Ожидание согласия кандидата)').attr('selected', true)
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible textarea').attr('value', 'Тест PersonWorkflow установил статус пользователя в Ожидание
+        согласия кандидата')
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible button:contains(Set)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=save</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=timelineTabTitle</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>перевел из стадии Ожидание подтверждения приглашения в Ожидание согласия кандидата</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Тест PersonWorkflow установил статус пользователя в Ожидание согласия кандидата</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Рассматриваются)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Пользователь для PersonWorkflow</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Принятые)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отложенные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отклоненные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=searchButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Пользователь для PersonWorkflow)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>id=genericInfo</td>
+    <td></td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=setStageButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible select option[selected]').removeAttr('selected');$('.ui-dialog:visible select
+        option:contains(Ожидаем выхода на работу)').attr('selected', true)
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible textarea').attr('value', 'Тест PersonWorkflow установил статус пользователя в Ожидаем
+        выхода на работу')
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible button:contains(Set)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=save</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=timelineTabTitle</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>перевел из стадии Ожидание согласия кандидата в Ожидаем выхода на работу</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Тест PersonWorkflow установил статус пользователя в Ожидаем выхода на работу</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Рассматриваются)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Принятые)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Пользователь для PersonWorkflow</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отложенные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отклоненные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=searchButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Пользователь для PersonWorkflow)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>id=genericInfo</td>
+    <td></td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=setStageButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible select option[selected]').removeAttr('selected');$('.ui-dialog:visible select
+        option:contains(Отклонен)').attr('selected', true)
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible textarea').attr('value', 'Тест PersonWorkflow установил статус пользователя в Отклонен')
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible button:contains(Set)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=save</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=timelineTabTitle</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>перевел из стадии Ожидаем выхода на работу в Отклонен</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Тест PersonWorkflow установил статус пользователя в Отклонен</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Рассматриваются)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Принятые)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отложенные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отклоненные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Пользователь для PersonWorkflow</td>
+    <td></td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=searchButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Пользователь для PersonWorkflow)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>id=genericInfo</td>
+    <td></td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=setStageButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible select option[selected]').removeAttr('selected');$('.ui-dialog:visible select
+        option:contains(Отложен)').attr('selected', true)
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible textarea').attr('value', 'Тест PersonWorkflow установил статус пользователя в Отложен')
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible button:contains(Set)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=save</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=timelineTabTitle</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>перевел из стадии Отклонен в Отложен</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Тест PersonWorkflow установил статус пользователя в Отложен</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Рассматриваются)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Принятые)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отложенные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Пользователь для PersonWorkflow</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отклоненные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=searchButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Пользователь для PersonWorkflow)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>id=genericInfo</td>
+    <td></td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>id=searchTextField</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=setStageButton</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible select option[selected]').removeAttr('selected');$('.ui-dialog:visible select
+        option:contains(Отказался)').attr('selected', true)
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible textarea').attr('value', 'Тест PersonWorkflow установил статус пользователя в Отказался')
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('.ui-dialog:visible button:contains(Set)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=save</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=timelineTabTitle</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>перевел из стадии Отложен в Отказался</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Тест PersonWorkflow установил статус пользователя в Отказался</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Рассматриваются)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Принятые)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отложенные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>document</td>
+    <td>Пользователь для PersonWorkflow</td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$('a:contains(Отклоненные)').click()</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementNotPresent</td>
+    <td>//div[@class='blockUI blockMsg blockPage']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Пользователь для PersonWorkflow</td>
+    <td></td>
+</tr>
+
+</tbody>
+</table>
+</body>
+</html>

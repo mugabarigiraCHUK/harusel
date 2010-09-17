@@ -1,0 +1,48 @@
+<project name="Verification Server deployer" default="deploy">
+
+  <property name="deliveryDir" value="C:/HRTool/validation-configuration"/>
+  <property name="appDir" value="${deliveryDir}/hr-tool"/>
+  <property name="serverDir" value="${deliveryDir}/tomcat"/>
+
+  <target name="tomcat-start">
+    <java dir="${serverDir}/bin" jar="${serverDir}/bin/bootstrap.jar" fork="true" spawn="true">
+      <jvmarg value="-Djava.endorsed.dirs=${serverDir}/common/endorsed"/>
+      <jvmarg value="-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager"/>
+      <jvmarg value="-Djava.util.logging.config.file=${serverDir}/conf/logging.properties"/>
+      <jvmarg value="-Djava.io.tmpdir=${serverDir}/temp"/>
+      <jvmarg value="-Dcatalina.base=${serverDir}"/>
+      <jvmarg value="-Dcatalina.home=${serverDir}"/>
+      <jvmarg value="-Dhrtool.conf.dir=${deliveryDir}/hr-tool-config"/>
+      <jvmarg value="-Xmx512M"/>
+      <jvmarg value="-Xms256M"/>
+      <arg value="start"/>
+    </java>
+  </target>
+
+  <target name="tomcat-stop">
+    <java dir="${serverDir}/bin" jar="${serverDir}/bin/bootstrap.jar" fork="true" spawn="false" failonerror="false">
+      <arg value="stop"/>
+    </java>
+  </target>
+
+
+  <target name="deploy" depends="tomcat-stop">
+    <echo message="deliveryDir=${deliveryDir}"/>
+    <echo message="serverDir=${serverDir}"/>
+    <echo message="appDir=${appDir}"/>
+
+    <exec executable="cmd">
+      <arg value="/C"/>
+      <arg value="grails"/>
+      <arg value="war"/>
+    </exec>
+
+    <delete dir="${appDir}"/>
+    <mkdir dir="${appDir}"/>
+    <copy file="HRTool-0.1.war" tofile="${appDir}/HRTool.war"/>
+
+    <antcall target="tomcat-start"/>
+
+  </target>
+
+</project>

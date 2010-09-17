@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+  <changeSet author="dkranchev (generated)" id="1269409604854-1">
+    <createTable schemaName="dbo" tableName="app_user_role">
+      <column name="app_user_roles_id" type="numeric(19,0)"/>
+      <column name="role_id" type="numeric(19,0)"/>
+    </createTable>
+  </changeSet>
+  <changeSet author="dkranchev (generated)" id="1269409604854-2">
+    <createTable schemaName="dbo" tableName="person_vacancy">
+      <column name="person_vacancies_id" type="numeric(19,0)"/>
+      <column name="vacancy_id" type="numeric(19,0)"/>
+    </createTable>
+  </changeSet>
+  <changeSet author="dkranchev (generated)" id="1269409604854-3">
+    <createTable schemaName="dbo" tableName="role_role_right">
+      <column name="role_rights_id" type="numeric(19,0)"/>
+      <column name="role_right_id" type="numeric(19,0)"/>
+    </createTable>
+  </changeSet>
+  <changeSet author="dkranchev (generated)" id="1269409604854-4">
+    <createTable schemaName="dbo" tableName="template_question">
+      <column name="template_questions_id" type="numeric(19,0)"/>
+      <column name="question_id" type="numeric(19,0)"/>
+    </createTable>
+  </changeSet>
+  <changeSet author="dkranchev (generated)" id="1269409604854-5">
+    <createTable schemaName="dbo" tableName="vacancy_app_user">
+      <column name="vacancy_users_id" type="numeric(19,0)"/>
+      <column name="app_user_id" type="numeric(19,0)"/>
+    </createTable>
+  </changeSet>
+  <changeSet author="dkranchev (generated)" id="1269409604854-6">
+    <addColumn schemaName="dbo" tableName="stage">
+      <column name="code_name" type="ntext"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="dkranchev (generated)" id="1269409604854-7">
+    <addNotNullConstraint columnDataType="TINYINT" columnName="disabled" defaultNullValue="" schemaName="dbo"
+                          tableName="app_user"/>
+  </changeSet>
+  <changeSet author="dkranchev (generated)" id="1269409604854-8">
+    <modifyColumn schemaName="dbo" tableName="filter_action">
+      <column name="query" type="TEXT"/>
+    </modifyColumn>
+  </changeSet>
+  <changeSet author="dkranchev (generated)" id="1269409604854-9">
+    <addNotNullConstraint columnDataType="TINYINT" columnName="required_decisions_flag" defaultNullValue=""
+                          schemaName="dbo" tableName="person"/>
+  </changeSet>
+  <!--
+    <changeSet author="dkranchev (generated)" id="1269409604854-10">
+        <addForeignKeyConstraint baseColumnNames="stage_id, before_decision_stage_id, decided_stage_id, from_id, to_id" baseTableName="person_event" baseTableSchemaName="dbo" constraintName="FKECD7DD3071E77E93" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id, id, id, id, id" referencedTableName="stage" referencedTableSchemaName="dbo"/>
+    </changeSet>
+    <changeSet author="dkranchev (generated)" id="1269409604854-11">
+        <addForeignKeyConstraint baseColumnNames="role_id, role_rights_id" baseTableName="role_role_right" baseTableSchemaName="dbo" constraintName="FK48E4047CFD88D829" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id, id" referencedTableName="role" referencedTableSchemaName="dbo"/>
+    </changeSet>
+    <changeSet author="dkranchev (generated)" id="1269409604854-12">
+        <addForeignKeyConstraint baseColumnNames="role_right_id" baseTableName="role_role_right" baseTableSchemaName="dbo" constraintName="FK48E4047C233C2AF4" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id" referencedTableName="role_right" referencedTableSchemaName="dbo"/>
+    </changeSet>
+    <changeSet author="dkranchev (generated)" id="1269409604854-13">
+        <addForeignKeyConstraint baseColumnNames="assigned_template_id, template_questions_id" baseTableName="template_question" baseTableSchemaName="dbo" constraintName="FKC1120A0BFBABF512" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id, id" referencedTableName="template" referencedTableSchemaName="dbo"/>
+    </changeSet>
+    <changeSet author="dkranchev (generated)" id="1269409604854-14">
+        <addForeignKeyConstraint baseColumnNames="question_id, parent_id, question_id" baseTableName="template_question" baseTableSchemaName="dbo" constraintName="FKC1120A0BC89F83A0" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id, id, id" referencedTableName="question" referencedTableSchemaName="dbo"/>
+    </changeSet>
+    <changeSet author="dkranchev (generated)" id="1269409604854-15">
+        <addForeignKeyConstraint baseColumnNames="person_id, person_id, person_id, person_id, person_vacancies_id, person_id, person_id, person_id" baseTableName="user_observation_journal" baseTableSchemaName="dbo" constraintName="FKB396E7B03DB61AC9" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id, id, id, id, id, id, id, id" referencedTableName="person" referencedTableSchemaName="dbo"/>
+    </changeSet>
+    <changeSet author="dkranchev (generated)" id="1269409604854-16">
+        <addForeignKeyConstraint baseColumnNames="manager_id, app_user_roles_id, manager_id, user_id, user_id, user_id, user_id, user_id, user_id, user_id, user_id, app_user_id" baseTableName="vacancy_app_user" baseTableSchemaName="dbo" constraintName="FK6248266D7F7F0D24" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id, id, id, id, id, id, id, id, id, id, id, id" referencedTableName="app_user" referencedTableSchemaName="dbo"/>
+    </changeSet>
+    <changeSet author="dkranchev (generated)" id="1269409604854-17">
+        <addForeignKeyConstraint baseColumnNames="vacancy_id, vacancy_users_id, vacancy_id" baseTableName="vacancy_criterion" baseTableSchemaName="dbo" constraintName="FK8FB027DD19B35490" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id, id, id" referencedTableName="vacancy" referencedTableSchemaName="dbo"/>
+    </changeSet>
+
+
+   <changeSet author="dkranchev (generated)" id="1269409604854-18">
+        <dropForeignKeyConstraint baseTableName="question_templates" baseTableSchemaName="dbo" constraintName="FK980CD220EF58CB20"/>
+    </changeSet>
+    <changeSet author="dkranchev (generated)" id="1269409604854-19">
+        <dropForeignKeyConstraint baseTableName="question_templates" baseTableSchemaName="dbo" constraintName="FK980CD220C89F83A0"/>
+    </changeSet>
+    <changeSet author="dkranchev (generated)" id="1269409604854-20">
+        <dropForeignKeyConstraint baseTableName="role_rights" baseTableSchemaName="dbo" constraintName="FK2C55ADC091281B3"/>
+    </changeSet>
+    <changeSet author="dkranchev (generated)" id="1269409604854-21">
+        <dropForeignKeyConstraint baseTableName="role_rights" baseTableSchemaName="dbo" constraintName="FK2C55ADC0233C2AF4"/>
+    </changeSet>
+    <changeSet author="dkranchev (generated)" id="1269409604854-22">
+        <dropForeignKeyConstraint baseTableName="stage_transition" baseTableSchemaName="dbo" constraintName="FK7AE3D53671E77E93"/>
+    </changeSet>
+    <changeSet author="dkranchev (generated)" id="1269409604854-23">
+        <dropForeignKeyConstraint baseTableName="user_observation_journal" baseTableSchemaName="dbo" constraintName="FKB396E7B0CA359D42"/>
+    </changeSet>
+    <changeSet author="dkranchev (generated)" id="1269409604854-24">
+        <dropForeignKeyConstraint baseTableName="user_observation_journal" baseTableSchemaName="dbo" constraintName="FKB396E7B03DB61AC9"/>
+    </changeSet>
+    <changeSet author="dkranchev (generated)" id="1269409604854-25">
+        <dropForeignKeyConstraint baseTableName="vacancy_criterion" baseTableSchemaName="dbo" constraintName="FK8FB027DD19B35490"/>
+    </changeSet>
+   -->
+  <!--
+    <changeSet author="dkranchev (generated)" id="1269409604854-26">
+          <dropColumn columnName="managers" schemaName="dbo" tableName="app_user"/>
+      </changeSet>
+      <changeSet author="dkranchev (generated)" id="1269409604854-27">
+          <dropColumn columnName="follow_up" schemaName="dbo" tableName="comments"/>
+      </changeSet>
+      <changeSet author="dkranchev (generated)" id="1269409604854-28">
+          <dropColumn columnName="icon" schemaName="dbo" tableName="document_type"/>
+      </changeSet>
+      <changeSet author="dkranchev (generated)" id="1269409604854-29">
+          <dropColumn columnName="name" schemaName="dbo" tableName="stage"/>
+      </changeSet>
+      <changeSet author="dkranchev (generated)" id="1269409604854-30">
+          <dropTable schemaName="dbo" tableName="app_user_roles"/>
+      </changeSet>
+      <changeSet author="dkranchev (generated)" id="1269409604854-31">
+          <dropTable schemaName="dbo" tableName="app_user_vacancies"/>
+      </changeSet>
+      <changeSet author="dkranchev (generated)" id="1269409604854-32">
+          <dropTable schemaName="dbo" tableName="person_vacancies"/>
+      </changeSet>
+      <changeSet author="dkranchev (generated)" id="1269409604854-33">
+          <dropTable schemaName="dbo" tableName="question_templates"/>
+      </changeSet>
+      <changeSet author="dkranchev (generated)" id="1269409604854-34">
+          <dropTable schemaName="dbo" tableName="required_decision_flag"/>
+      </changeSet>
+      <changeSet author="dkranchev (generated)" id="1269409604854-35">
+          <dropTable schemaName="dbo" tableName="role_rights"/>
+      </changeSet>
+      <changeSet author="dkranchev (generated)" id="1269409604854-36">
+          <dropTable schemaName="dbo" tableName="stage_transition"/>
+      </changeSet>
+  -->
+</databaseChangeLog>

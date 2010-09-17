@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>NotificationTests</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">NotificationTests</td></tr>
+</thead><tbody>
+<tr>
+	<td>openAndWait</td>
+	<td>/login/signout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_username</td>
+	<td>testhr1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_password</td>
+	<td>testhr1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>$.fx.off=true</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>$.ajaxSetup({async: false})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//div[@class='blockUI blockMsg blockPage']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=btnAddNew</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=addPersonNameField</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=addPersonNameField</td>
+	<td>Пользователь для NotificationTests</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=addPersonPopupSubmit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=addPersonPopupSubmit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//div[@class='blockUI blockMsg blockPage']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//div[@class='blockUI blockMsg blockPage']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=setStageButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>$('.ui-dialog:visible select option[selected]').removeAttr('selected')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>$('.ui-dialog:visible select option:contains(Ожидание резюме)').attr('selected', true)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>$('.ui-dialog:visible textarea').attr('value', 'Тест NotificationTests установил статус пользователя в Ожидание резюме')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>$('.ui-dialog:visible button:last').click()</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//div[@class='blockUI blockMsg blockPage']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//div[@class='blockUI blockMsg blockPage']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>$('&lt;div&gt;').load('home/remove/' + $('#personId').val())</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//div[@class='blockUI blockMsg blockPage']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>openAndWait</td>
+	<td>home</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//div[@class='blockUI blockMsg blockPage']</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

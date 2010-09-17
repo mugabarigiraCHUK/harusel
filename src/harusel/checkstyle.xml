@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="Checkstyle" basedir=".">
+
+    <macrodef name="checkstyle">
+        <attribute name="checkstyledir" default="${project.tools.dir}/${tool.checkstyle}"/>
+        <attribute name="reportdir" default="${checkstyle.report.dir}"/>
+        <attribute name="config" default="${checkstyle.config}"/>
+        <attribute name="format" default="${checkstyle.report.format}"/>
+        <attribute name="srcdir" default="${src.dir}"/>
+        <attribute name="classpath" default="classpath"/>
+        <sequential>
+            <path id="checkstyle.classpath">
+                <fileset dir="@{checkstyledir}" includes="*.jar"/>
+            </path>
+            <taskdef name="checkstyle-cmd" classname="com.puppycrawl.tools.checkstyle.CheckStyleTask"
+                     classpathref="checkstyle.classpath"/>
+            <delete dir="@{reportdir}"/>
+            <mkdir dir="@{reportdir}/xml"/>
+            <checkstyle-cmd config="@{config}" failureProperty="checkstyle.failure"
+                            failOnViolation="false">
+                <classpath refid="@{classpath}"/>
+                <formatter type="xml" tofile="@{reportdir}/xml/checkstyle_report.xml"/>
+                <fileset dir="@{srcdir}" includes="**/*.java"/>
+            </checkstyle-cmd>
+            <xslt basedir="@{reportdir}/xml" destdir="@{reportdir}"
+                  style="@{format}">
+                <param name="output.dir" expression="@{reportdir}"/>
+            </xslt>
+        </sequential>
+    </macrodef>
+
+    <target name="checkstyle" depends="isModuleRoot"
+            description="Runs checkstyle report for module (provide custom task to cover test classes)">
+        <checkstyle/>
+    </target>
+</project>

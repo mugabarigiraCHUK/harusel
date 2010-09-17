@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="Coverage" basedir=".">
+
+    <property name="cobertura.instrument.tmp.dir" value="${basedir}/.cobertura_instrument"/>
+
+    <macrodef name="coverage">
+        <attribute name="coberturadir" default="${project.tools.dir}/${tool.cobertura}"/>
+        <attribute name="classesdir" default="${build.classes.dir}"/>
+        <attribute name="classpath" default="classpath"/>
+        <attribute name="srcdir" default="${src.dir}"/>
+        <attribute name="reportdir" default="${coverage.report.dir}"/>
+        <sequential>
+            <delete dir="@{reportdir}"/>
+            <mkdir dir="@{reportdir}"/>
+            <path id="cobertura.classpath">
+                <fileset dir="@{coberturadir}">
+                    <include name="cobertura.jar"/>
+                    <include name="lib/*.jar"/>
+                </fileset>
+            </path>
+            <taskdef classpathref="cobertura.classpath" resource="tasks.properties"/>
+            <delete dir="${cobertura.instrument.tmp.dir}"/>
+            <mkdir dir="${cobertura.instrument.tmp.dir}"/>
+
+            <!-- instrumenting -->
+            <cobertura-instrument todir="${cobertura.instrument.tmp.dir}"
+                                  datafile="${build.dir}/cobertura.ser">
+                <ignore regex="org.apache.log4j.**"/>
+                <classpath>
+                    <path refid="cobertura.classpath"/>
+                    <path refid="@{classpath}"/>
+                </classpath>
+                <fileset dir="@{classesdir}" includes="**/*.class"/>
+            </cobertura-instrument>
+
+            <!-- running tests -->
+            <path id="srcclasspath">
+                <path refid="cobertura.classpath"/>
+                <path location="${cobertura.instrument.tmp.dir}"/>
+                <path location="@{classesdir}"/>
+            </path>
+            <test srcclasspath="srcclasspath"/>
+
+            <!-- build report-->
+            <cobertura-report destdir="@{reportdir}" datafile="${build.dir}/cobertura.ser">
+                <fileset dir="@{srcdir}">
+                    <include name="**/*.java"/>
+                </fileset>
+            </cobertura-report>
+        </sequential>
+    </macrodef>
+
+    <target name="coverage" description="Coverage task for simple java module" depends="isModuleRoot">
+        <coverage/>
+    </target>
+
+    <target name="coverage.web" description="Coverage task for web module" depends="isModuleRoot">
+        <coverage classesdir="${build.classes.dir}"/>
+    </target>
+</project>

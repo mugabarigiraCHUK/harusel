@@ -1,0 +1,147 @@
+@media print {
+    .formSubmit {
+        display: none;
+    }
+
+    .formHeader {
+        background-color: silver;
+    }
+
+    td {
+        border-bottom: 1px dotted;
+    }
+
+    .messageBox {
+        display: none;
+    }
+
+    .message {
+        display: none;
+    }
+}
+
+.formHeader {
+    border-bottom: #bfddf3 solid 2px;
+}
+
+.formSubmit {
+    float: right;
+    margin-left: 10px;
+}
+
+.employeeFullName .publishingDate {
+    font-weight: bold;
+}
+
+table.reviewFormTable {
+    border: #bfddf3 solid 2px;
+}
+
+td {
+    padding: 0;
+    margin: 0;
+}
+
+td.digit {
+    width: 50px;
+}
+
+th {
+    background-color: #aecce2;
+    font-family: sans-serif;
+}
+
+.group {
+    background-color: #bfddf3;
+}
+
+.odd {
+    background-color: #f6f6fa;
+}
+
+.messageBox {
+    background: #ccffcc;
+    border: 1px solid #339900;
+    min-height: 25px;
+    color: black;
+    font-weight: bold;
+    padding: 5px 5px 5px 60px;
+    margin-bottom: 5px;
+    line-height: 25px;
+    text-align: center;
+}
+
+.message {
+    background: #ccffcc url(../images/img/iconWorringMess.png) no-repeat;
+    border: 1px solid #339900;
+    min-height: 25px;
+    color: #339900;
+    padding: 5px 5px 5px 60px;
+    line-height: 25px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+td.commentsColumn div {
+    overflow: auto;
+}
+
+#PRAnketa {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#PRAnketa table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+/* Notification area */
+
+#notificationArea {
+    width: 80%;
+    margin-left: 10%;
+    padding: 10px;
+}
+
+#notificationArea div {
+    vertical-align: middle;
+    min-height: 20px;
+    padding: 3px 30px;
+    position: relative;
+    font-size: 13px;
+    border-width: 1px;
+    border-style: solid;
+}
+
+#notificationArea div.errors {
+    color: #cc0000;
+    border-color: red;
+    background-color: #fff3f3;
+}
+
+#notificationArea div.messages {
+    color: #339900;
+    border-color: green;
+    background-color: #f3fff3;
+}
+
+td.satisfaction0 .relevance0 {
+    background-color: gray;
+}
+
+td.satisfaction0 .relevance0 {
+    background-color: #FFC0C0;
+    font-weight: bold;
+}
+
+td.satisfaction1 {
+    background-color: #FFFFC0;
+    font-weight: bold;
+}
+
+td.satisfaction2 {
+    background-color: #C0FFC0;
+    font-weight: bold;
+}

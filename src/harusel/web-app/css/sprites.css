@@ -1,0 +1,93 @@
+.spriteToolbar {
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.spriteToolbar {
+    background-image: url(../images/toolbarSprite.png);
+}
+
+.reject_sprite {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    background-position: 0 0;
+}
+
+.pause_sprite {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    background-position: 0 -42px;
+}
+
+.anketa_sprite {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    background-position: 0 -84px;
+}
+
+.interview_sprite {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    background-position: 0 -126px;
+}
+
+.accept_sprite {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    background-position: 0 -168px;
+}
+
+.info_sprite {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    background-position: 0 -210px;
+}
+
+.setStage_sprite {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    background-position: 0 -252px;
+}
+
+.menuLine_sprite {
+    width: 1px;
+    height: 26px;
+    line-height: 26px;
+    background-position: 0 -294px;
+}
+
+.addDoc_sprite {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    background-position: 0 -330px;
+}
+
+.addScore_sprite {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    background-position: 0 -372px;
+}
+
+.addComment_sprite {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    background-position: 0 -414px;
+}
+
+.sendEmail_sprite {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    background-position: 0 -456px;
+}
+

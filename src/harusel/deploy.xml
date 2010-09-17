@@ -1,0 +1,38 @@
+<project name="deployer" default="deployHRTool">
+  <import file="build.xml"/>
+
+
+  <property name="hrtool.config.dir" value="/etc/hrtool"/>
+  <property name="tomcat.dir" value="/srv/distr/apache-tomcat-6.0.20"/>
+
+  <target name="tomcat-start">
+    <java dir="${tomcat.dir}/bin" jar="${tomcat.dir}/bin/bootstrap.jar" fork="true" spawn="true">
+      <jvmarg value="-Djava.endorsed.dirs=${tomcat.dir}/common/endorsed"/>
+      <jvmarg value="-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager"/>
+      <jvmarg value="-Djava.util.logging.config.file=${tomcat.dir}/conf/logging.properties"/>
+      <jvmarg value="-Djava.io.tmpdir=${tomcat.dir}/temp"/>
+      <jvmarg value="-Dcatalina.base=${tomcat.dir}"/>
+      <jvmarg value="-Dcatalina.home=${tomcat.dir}"/>
+      <jvmarg value="-Dhrtool.conf.dir=${hrtool.config.dir}"/>
+      <jvmarg value="-Xmx512M"/>
+      <jvmarg value="-Xms256M"/>
+      <arg value="start"/>
+    </java>
+  </target>
+
+  <target name="tomcat-stop">
+    <java dir="${tomcat.dir}/bin" jar="${tomcat.dir}/bin/bootstrap.jar" fork="true" spawn="false" failonerror="false">
+      <arg value="stop"/>
+    </java>
+  </target>
+
+
+  <target name="deployHRTool" depends="-init-grails">
+    <delete file="${tomcat.dir}/webapps/HRTool.war" failonerror="false"/>
+    <delete dir="${tomcat.dir}/webapps/HRTool" failonerror="false"/>
+    <grails script="War" args="${tomcat.dir}/webapps/HRTool.war"/>
+
+    <antcall target="tomcat-start"/>
+  </target>
+
+</project>

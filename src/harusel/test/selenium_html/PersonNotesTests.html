@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="selenium.base" href=""/>
+    <title>PersonNotes</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr>
+    <td rowspan="1" colspan="3">PersonNotes</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>openAndWait</td>
+    <td>/login/signout</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>j_username</td>
+    <td></td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>j_username</td>
+    <td>testhr1</td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>j_password</td>
+    <td>testhr1</td>
+</tr>
+<tr>
+    <td>clickAndWait</td>
+    <td>//input[@value='Login']</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$.ajaxSetup({async: false})</td>
+    <td></td>
+</tr>
+<tr>
+    <td>runScript</td>
+    <td>$.fx.off=true</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>id=1</td>
+    <td></td>
+</tr>
+<tr>
+    <td>assertElementPresent</td>
+    <td>id=1</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>id=1</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>addComment</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>noteText</td>
+    <td></td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>noteText</td>
+    <td>Added from list</td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>//button[2]</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>1</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>1</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>addComment</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>noteText</td>
+    <td></td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>noteText</td>
+    <td>Cancelled</td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>//button[1]</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>2</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>2</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>addComment</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>noteText</td>
+    <td></td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>noteText</td>
+    <td>Multiple</td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>//button[2]</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>link=Сычев Руслан</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>fullName</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>addComment</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>noteText</td>
+    <td></td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>noteText</td>
+    <td>Added from card</td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>//div[11]/button[2]</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>addComment</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>noteText</td>
+    <td></td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>noteText</td>
+    <td>Cancelled</td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>//div[11]/button[1]</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>//div[@id='tabPane']/ul/span[1]/li/a/span</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>addComment</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>noteText</td>
+    <td></td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>noteText</td>
+    <td>Added from events</td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>//div[11]/button[2]</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForTextPresent</td>
+    <td>Added from events</td>
+    <td>5000</td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Added from card</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Multiple</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Added from list</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>Cancelled</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>//div[@id='tabPane']/ul/span[5]/li/a/span</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>addComment</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>noteText</td>
+    <td></td>
+</tr>
+<tr>
+    <td>type</td>
+    <td>noteText</td>
+    <td>Added from notes</td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>//div[11]/button[2]</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Added from notes</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Added from events</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Added from card</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Multiple</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextPresent</td>
+    <td>Added from list</td>
+    <td></td>
+</tr>
+<tr>
+    <td>verifyTextNotPresent</td>
+    <td>Cancelled</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>link=&lt;&lt;Вернуться к списку</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>link=Иванов Иван Иванович</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>link=Иванов Иван Иванович</td>
+    <td></td>
+</tr>
+<tr>
+    <td>waitForElementPresent</td>
+    <td>//div[@id='tabPane']/ul/span[5]/li/a/span</td>
+    <td></td>
+</tr>
+<tr>
+    <td>click</td>
+    <td>//div[@id='tabPane']/ul/span[5]/li/a/span</td>
+    <td></td>
+</tr>
+<tr>
+    <td>assertTextPresent</td>
+    <td>Multiple</td>
+    <td></td>
+</tr>
+<tr>
+    <td>assertTextNotPresent</td>
+    <td>Cancelled</td>
+    <td></td>
+</tr>
+
+</tbody>
+</table>
+</body>
+</html>

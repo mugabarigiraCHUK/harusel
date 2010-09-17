@@ -1,0 +1,33 @@
+<project name="Live Server deployer" default="deploy">
+
+  <property name="appDir" value="C:\Program Files\Apache Software Foundation\Tomcat 6.0\webapps\ROOT"/>
+
+  <target name="deploy">
+
+    <exec command="cmd">
+      <arg value="/C"/>
+      <arg value="grails"/>
+      <arg value="war"/>
+    </exec>
+
+    <exec command="cmd" failonerror="false">
+      <arg value="/C"/>
+      <arg value="net"/>
+      <arg value="stop"/>
+      <arg value="Apache Tomcat"/>
+    </exec>
+
+    <delete dir="${appDir}"/>
+    <mkdir dir="${appDir}"/>
+    <unzip src="HRTool-0.1.war" dest="${appDir}"/>
+
+    <exec command="cmd">
+      <arg value="/C"/>
+      <arg value="net"/>
+      <arg value="start"/>
+      <arg value="Apache Tomcat"/>
+    </exec>
+
+  </target>
+
+</project>

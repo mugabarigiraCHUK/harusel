@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--<Context path="/hrtool">-->
+<Context path="/" cacheMaxSize="20480000" cacheTTL="3600000" cachingAllowed="true" swallowOutput="true">
+  <Logger className="org.apache.catalina.logger.FileLogger"
+          prefix="hrtool."
+          suffix=".out"
+          timestamp="true"/>
+</Context>
+    
