@@ -7,9 +7,15 @@ class MailEvent extends PersonEvent {
     String text;
 
     static constraints = {
-        /*
-         Max mail size.
-         */
+        /** Max mail size.   */
         text(maxSize: 65000)
     }
+
+    static mapping = {
+        columns {
+            // TODO: Test if this works on MSSQL.
+            text type: 'text'
+        }
+    }
+
 }
