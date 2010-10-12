@@ -1284,6 +1284,14 @@ ul.errors {
     width: 100%;
 }
 
+.ui-tabs {
+    width: auto !important
+}
+
+#tabPane {
+    width: 100%;
+}
+
 /* Performance review perspective - Template Managing tab*/
 #performanceReviewTabs {
     width: 100%;
