@@ -4,6 +4,7 @@ import domain.user.AppUser
 import org.apache.commons.logging.Log
 import org.apache.commons.logging.LogFactory
 import org.codehaus.groovy.grails.plugins.springsecurity.GrailsUserImpl
+import org.springframework.security.BadCredentialsException
 import org.springframework.security.GrantedAuthority
 import org.springframework.security.GrantedAuthorityImpl
 import org.springframework.security.userdetails.UserDetails
@@ -24,6 +25,10 @@ class HRToolUserDetailsService implements UserDetailsService {
 
         AppUser userDetails = AppUser.findByLogin(login, [cache: true])
 
+        if (!userDetails) {
+            throw new BadCredentialsException("Cannot find user: " + login);
+        }
+
         def authorities = userDetails.collectAuthorities().collect {String authority ->
             log.debug("\thas right \"$authority\"")
             new GrantedAuthorityImpl(authority)
@@ -31,6 +36,6 @@ class HRToolUserDetailsService implements UserDetailsService {
 
         log.debug("Retrieving user \"$login\" is completed.")
         return new GrailsUserImpl(userDetails.login, "NO_PASSWORD", true, true, true, true,
-            authorities.toArray(new GrantedAuthority[authorities.size()]), userDetails)
+                authorities.toArray(new GrantedAuthority[authorities.size()]), userDetails)
     }
 }
