@@ -15,21 +15,21 @@ class HomeController {
     def index = {
         def filterDetails = filterService.getFiltersList()
         def selectMsg = messageSource.getMessage("home.operations.select", null,
-            LocaleContextHolder.locale)
+                LocaleContextHolder.locale)
         def removeMsg = messageSource.getMessage("home.operations.remove", null,
-            LocaleContextHolder.locale)
+                LocaleContextHolder.locale)
         def subscribeMsg = messageSource.getMessage("home.operations.subscribe", null,
-            LocaleContextHolder.locale)
+                LocaleContextHolder.locale)
 
         // CR: major dkranchev 02-Mar-2010 This map should be inversed. code -> view.
         def candidateOperations = [
-            "$selectMsg": "",
-            "$removeMsg": "remove",
-            "$subscribeMsg": "subscribe"
+                "$selectMsg": "",
+                "$removeMsg": "remove",
+                "$subscribeMsg": "subscribe"
         ]
 
         def model = [filters: filterDetails, candidateOperations: candidateOperations,
-            toolbarButtons: ConfigurationHolder.config.toolbarButtons
+                toolbarButtons: ConfigurationHolder.config.toolbarButtons
         ]
 
         return model
@@ -93,7 +93,7 @@ class HomeController {
             }
         } else {
 
-            Set<Person> personList = personService.findPersons(params.query, params.create)
+            Set<Person> personList = personService.findPersons(params.query, Boolean.valueOf(params.create))
 
             if (!personList?.size() && params.create) {
                 redirect(controller: "person", action: "add", params: [fullName: params.query])
