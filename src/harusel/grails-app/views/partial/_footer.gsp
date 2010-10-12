@@ -2,7 +2,9 @@
 <div class="style_bodyBottom">
   <g:message code="common.footer.copyright" args="${[g.formatDate(format:'yyyy')]}"/>
   <span class="reportIssue">
-    <a href="https://trac/HRTool/newticket" target="_blank">
+
+    %{-- TODO: extract to configuration --}%
+    <a href="https://code.google.com/p/harusel/issues/entry" target="_blank">
       <g:message code="common.report.error"/>
     </a>
   </span>
