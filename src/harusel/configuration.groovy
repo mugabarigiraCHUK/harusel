@@ -5,17 +5,17 @@
 // the application in compliance with your requirements.                      //
 ////////////////////////////////////////////////////////////////////////////////
 
-println "this is configuration file for hrool"
+println "Reading configuration file for harusel."
 
 email {
     host = "10.0.0.25"
     port = 25
-    from = "hrtool@office.com"
+    from = "harusel@office.com"
 }
 
 log {
 //    file = "${common.HRToolConfig.HRTOOL_CONF_DIR}/hr-tool.log"
-    file = hrtool.log
+    file = 'harusel.log'
 }
 
 // PRODUCTION CONFIG
@@ -38,11 +38,11 @@ ldap {
 // TEST CONFIG
 
 database {
-    url = 'jdbc:mysql://localhost/hrtool?useUnicode=true&characterEncoding=UTF-8'
+    url = 'jdbc:mysql://localhost/harusel?useUnicode=true&characterEncoding=UTF-8'
     driver = 'com.mysql.jdbc.Driver'
-    database = 'hrtool'
-    username = 'hrtool'
-    password = 'hrtool'
+    database = 'harusel'
+    username = 'root'
+    password = ''
     dialect = 'org.hibernate.dialect.MySQL5Dialect'
     longvarbinary = "BLOB"
 }
