@@ -78,7 +78,6 @@ class HomeController {
     def getFilters = {
         def user = UserContextHolder.getContextUser();
         user.refresh()
-        // TODO: filters should be sorted by some property (to avoid mixing on filters reloading)
         def filters = filterService.getFiltersList();
         render(template: "/partial/filters", model: [filters: filters])
     }
