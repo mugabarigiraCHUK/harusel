@@ -40,6 +40,7 @@ class NotificationService {
         try {
             mailSender.send(messages as SimpleMailMessage[])
         }
+        // TODO: notify user about failed email send.
         catch (MailException e) {
             log.error "Failed to send emails: $e.message", e
         }
