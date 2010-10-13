@@ -4,10 +4,14 @@ public class HRToolConfig {
 
     public static final String HRTOOL_CONF_DIR = System.getProperty("hrtool.conf.dir", ".")
 
-    private static final String CONFIGURATION_FILE_NOT_FOUND = "cannot find configuration file: %1"
+    private static final String CONFIGURATION_FILE_NOT_FOUND = "cannot find configuration file: %s"
 
     private static ConfigObject loadConfig(String path) {
         File configurationFile = new File(path)
+
+        // TODO: Use logging.
+        System.out.println("Reading configuation from file: " + configurationFile);
+
         if (!configurationFile.exists()) {
             throw new FileNotFoundException(String.format(CONFIGURATION_FILE_NOT_FOUND, path))
         }
